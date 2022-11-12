@@ -140,6 +140,8 @@ public class ItemSpellBullet extends ItemMod implements ISpellContainer, IPsiIte
 	@Override
 	public void castSpell(ItemStack stack, SpellContext context) {
 		ItemStack cad = PsiAPI.getPlayerCAD(context.caster);
+		if(!(cad.getItem() instanceof ICAD))
+			return;
 		ItemStack colorizer = ((ICAD) cad.getItem()).getComponentInSlot(cad, EnumCADComponent.DYE);
 
 		EntitySpellProjectile projectile = null;

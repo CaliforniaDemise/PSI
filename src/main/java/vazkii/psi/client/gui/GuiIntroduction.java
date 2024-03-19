@@ -66,11 +66,6 @@ public class GuiIntroduction extends GuiScreen {
 
 		super.drawScreen(mouseX, mouseY, partialTicks);
 
-		if(LibMisc.BETA_TESTING) {
-			String betaTest = TooltipHelper.local("psimisc.wip");
-			mc.fontRenderer.drawStringWithShadow(betaTest, left + xSize / 2f - mc.fontRenderer.getStringWidth(betaTest) / 2f, top - 12, 0xFFFFFF);
-		}
-
 		TextHelper.renderText(width / 2 - 120, height / 2 - 30, 245, skip ? "psi.levelskip" : "psi.introduction", false, true, PersistencyHandler.persistentLevel);
 		if(skip) {
 			String loadPrompt = TooltipHelper.local("psimisc.loadPrompt");

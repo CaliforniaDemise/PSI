@@ -363,10 +363,6 @@ public class GuiProgrammer extends GuiScreen {
 				mc.fontRenderer.drawStringWithShadow(betaTest, left + xSize / 2f - mc.fontRenderer.getStringWidth(betaTest) / 2f, topyText, 0xFFFFFF);
 				topyText -= 10;
 			}
-			if(LibMisc.BETA_TESTING) {
-				String betaTest = I18n.format("psimisc.wip");
-				mc.fontRenderer.drawStringWithShadow(betaTest, left + xSize / 2f - mc.fontRenderer.getStringWidth(betaTest) / 2f, topyText, 0xFFFFFF);
-			}
 			if(piece != null) {
 				String name = I18n.format(piece.getUnlocalizedName());
 				mc.fontRenderer.drawStringWithShadow(name, left + xSize / 2f - mc.fontRenderer.getStringWidth(name) / 2f, topyText, 0xFFFFFF);

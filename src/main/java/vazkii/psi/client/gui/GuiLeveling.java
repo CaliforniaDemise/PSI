@@ -182,11 +182,6 @@ public class GuiLeveling extends GuiScreen {
 			}
 		}
 
-		if(LibMisc.BETA_TESTING) {
-			String betaTest = TooltipHelper.local("psimisc.wip");
-			mc.fontRenderer.drawStringWithShadow(betaTest, left + xSize / 2f - mc.fontRenderer.getStringWidth(betaTest) / 2f, top - 12, 0xFFFFFFFF);
-		}
-
 		String key = "psimisc.levelInfo";
 		if(mc.player.capabilities.isCreativeMode)
 			key = "psimisc.levelInfoCreative";

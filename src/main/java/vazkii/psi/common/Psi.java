@@ -18,24 +18,21 @@ import net.minecraftforge.fml.common.SidedProxy;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLServerStartingEvent;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 import vazkii.psi.common.command.CommandPsiLearn;
 import vazkii.psi.common.command.CommandPsiUnlearn;
 import vazkii.psi.common.core.proxy.CommonProxy;
 import vazkii.psi.common.lib.LibMisc;
 
-@Mod(modid = LibMisc.MOD_ID, name = LibMisc.MOD_NAME, version = LibMisc.VERSION, guiFactory = LibMisc.GUI_FACTORY, dependencies = LibMisc.DEPENDENCIES)
+@SuppressWarnings("unused")
+@Mod(modid = LibMisc.MOD_ID, name = "Psi Unhinged", version = LibMisc.VERSION, guiFactory = "vazkii.psi.client.core.proxy.GuiFactory", dependencies = "required-after:autoreglib")
 public class Psi {
-
-	public static final Logger logger = LogManager.getLogger(LibMisc.MOD_ID);
 
 	@Instance(LibMisc.MOD_ID)
 	public static Psi instance;
 	
 	public static boolean magical;
 
-	@SidedProxy(serverSide = LibMisc.PROXY_COMMON, clientSide = LibMisc.PROXY_CLIENT)
+	@SidedProxy(serverSide = "vazkii.psi.common.core.proxy.CommonProxy", clientSide = "vazkii.psi.client.core.proxy.ClientProxy")
 	public static CommonProxy proxy;
 
 	@EventHandler
@@ -53,7 +50,6 @@ public class Psi {
 	public void serverStartingEvent(FMLServerStartingEvent event) {
 		event.registerServerCommand(new CommandPsiLearn());
 		event.registerServerCommand(new CommandPsiUnlearn());
-//		event.registerServerCommand(new CommandDownloadLatest());
 	}
 
 }

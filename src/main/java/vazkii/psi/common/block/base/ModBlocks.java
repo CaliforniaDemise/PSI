@@ -12,6 +12,7 @@ package vazkii.psi.common.block.base;
 
 import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntity;
+import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.minecraftforge.oredict.OreDictionary;
 import vazkii.arl.block.BlockMod;
@@ -23,7 +24,7 @@ import vazkii.psi.common.block.tile.TileCADAssembler;
 import vazkii.psi.common.block.tile.TileConjured;
 import vazkii.psi.common.block.tile.TileProgrammer;
 import vazkii.psi.common.lib.LibBlockNames;
-import vazkii.psi.common.lib.LibResources;
+import vazkii.psi.common.lib.LibMisc;
 
 public class ModBlocks {
 
@@ -55,7 +56,6 @@ public class ModBlocks {
 	}
 
 	private static void registerTile(Class<? extends TileEntity> clazz, String key) {
-		GameRegistry.registerTileEntity(clazz, LibResources.PREFIX_MOD + key);
+		GameRegistry.registerTileEntity(clazz, new ResourceLocation(LibMisc.MOD_ID, key));
 	}
-
 }

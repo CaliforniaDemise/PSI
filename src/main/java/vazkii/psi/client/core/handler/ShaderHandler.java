@@ -7,11 +7,13 @@
  * Botania License: http://botaniamod.net/license.php
  *
  * File Created @ [Apr 9, 2014, 11:20:26 PM (GMT)]
- */
+ */PREFIX_MOD
 package vazkii.psi.client.core.handler;
 
 import net.minecraft.client.renderer.OpenGlHelper;
 import org.apache.logging.log4j.Level;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.lwjgl.opengl.ARBFragmentShader;
 import org.lwjgl.opengl.ARBShaderObjects;
 import org.lwjgl.opengl.ARBVertexShader;
@@ -89,6 +91,8 @@ public final class ShaderHandler {
 	// http://lwjgl.org/wiki/index.php?title=GLSL_Shaders_with_LWJGL
 
 	private static int createProgram(String vert, String frag) {
+		Logger shaderLog = LogManager.getLogger("psi-shader-handler");
+
 		int vertId = 0, fragId = 0, program;
 		if(vert != null)
 			vertId = createShader(vert, VERT_ST);
@@ -106,13 +110,13 @@ public final class ShaderHandler {
 
 		ARBShaderObjects.glLinkProgramARB(program);
 		if(ARBShaderObjects.glGetObjectParameteriARB(program, ARBShaderObjects.GL_OBJECT_LINK_STATUS_ARB) == GL11.GL_FALSE) {
-			Psi.logger.log(Level.ERROR, getLogInfo(program));
+			shaderLog.log(Level.ERROR, getLogInfo(program));
 			return 0;
 		}
 
 		ARBShaderObjects.glValidateProgramARB(program);
 		if (ARBShaderObjects.glGetObjectParameteriARB(program, ARBShaderObjects.GL_OBJECT_VALIDATE_STATUS_ARB) == GL11.GL_FALSE) {
-			Psi.logger.log(Level.ERROR, getLogInfo(program));
+			shaderLog.log(Level.ERROR, getLogInfo(program));
 			return 0;
 		}
 

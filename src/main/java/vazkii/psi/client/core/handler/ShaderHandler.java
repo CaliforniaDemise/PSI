@@ -7,7 +7,7 @@
  * Botania License: http://botaniamod.net/license.php
  *
  * File Created @ [Apr 9, 2014, 11:20:26 PM (GMT)]
- */PREFIX_MOD
+ */
 package vazkii.psi.client.core.handler;
 
 import net.minecraft.client.renderer.OpenGlHelper;
